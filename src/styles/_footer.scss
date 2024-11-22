@@ -1,0 +1,194 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.footer {
+  padding-top: rem(144);
+  padding-bottom: rem(72);
+  color: $white;
+  background: $primaryClr2;
+
+  @include phone {
+    padding-top: rem(254);
+  }
+
+  &__container {
+    @include container;
+  }
+  &__logo {
+    @include phone {
+      width: 100%;
+      text-align: center;
+      padding-bottom: rem(32);
+      border-bottom: rem(1) solid rgba($white, 0.1);
+    }
+  }
+  &__section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include phone {
+      flex-direction: column;
+    }
+
+    &:not(:last-child) {
+      padding-bottom: rem(40);
+      border-bottom: rem(1) solid rgba($white, 0.1);
+
+      @include phone {
+        border-bottom: none;
+      }
+    }
+    &:nth-child(n + 2) {
+      @include body;
+      color: rgba($white, 0.45);
+      padding-top: rem(30);
+
+      @include phone {
+        padding-top: 0;
+      }
+
+      a {
+        color: rgba($white, 0.45);
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      span,
+      div:has(a) {
+        font-weight: 500;
+      }
+    }
+
+    .contacts {
+      a {
+        font-weight: 400;
+      }
+    }
+  }
+  &__block {
+    @include phone {
+      padding-top: rem(40);
+    }
+  }
+  &__nav {
+    ul {
+      display: flex;
+      gap: rem(42);
+
+      @include phone {
+        padding-top: rem(32);
+        align-items: center;
+        flex-direction: column;
+        gap: rem(32);
+      }
+    }
+  }
+  &__socials {
+    display: flex;
+    gap: rem(16);
+
+    @include phone {
+      padding-top: rem(40);
+    }
+  }
+  &__social img {
+    @include transition;
+
+    &:hover {
+      filter: brightness(1.3);
+    }
+  }
+  &__form {
+    position: relative;
+    z-index: 2;
+    margin-bottom: rem(-72);
+
+    @include tablet {
+      margin: 0 rem(40) rem(-86);
+    }
+
+    @include phone {
+      margin: 0 rem(24) rem(-180);
+    }
+    .form {
+      &__container {
+        z-index: 0;
+        position: relative;
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        grid-template-columns: 1fr fit-content(rem(152));
+        column-gap: rem(310);
+        row-gap: rem(30);
+        padding: 0 rem(95);
+        min-height: rem(292);
+        border-radius: rem(15);
+        background: $primaryClr1;
+
+        @include container;
+
+        @include tablet {
+          padding: rem(58) rem(58);
+          grid-template-columns: 1fr;
+          justify-items: center;
+          text-align: center;
+          row-gap: unset;
+        }
+
+        &::before {
+          z-index: -1;
+          pointer-events: none;
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          background: url("/images/bg.svg") center/cover no-repeat;
+        }
+      }
+      &__title{
+        @include h2;
+
+        order: 1;
+        color: $white;
+        width: 100%;
+        max-width: rem(300);
+
+        @include tablet {
+          margin-bottom: rem(20);
+        }
+        @include phone {
+        }
+      }
+      &__description {
+        @include body;
+
+        order: 3;
+        color: $white;
+
+        @include tablet {
+          margin-bottom: rem(30);
+        }
+      }
+      &__link {
+        @include btn1;
+
+        height: rem(56);
+        align-self: center;
+        grid-row: span 2;
+        order: 2;
+        cursor: pointer;
+        text-transform: uppercase;
+        padding: rem(18);
+
+        @include tablet {
+          order: 3;
+        }
+      }
+    }
+  }
+}

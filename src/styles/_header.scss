@@ -1,0 +1,151 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.header {
+  background: $white;
+  padding: rem(64) 0;
+
+  @include phone {
+    padding: rem(34) 0;
+    height: rem(96);
+  }
+
+  &__container {
+    z-index: 3;
+
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include container;
+  }
+  &__wraper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    @include phone {
+      & {
+        z-index: 2;
+        justify-content: space-between;
+      }
+
+      &::before {
+        pointer-events: none;
+        content: "";
+        z-index: -1;
+        position: absolute;
+        top: rem(-34);
+        left: 0;
+        width: 100%;
+        height: rem(96);
+        background: $white;
+      }
+    }
+  }
+  &__nav.show {
+    @include phone {
+      pointer-events: all;
+      transform: translateY(calc(100% + rem(34)));
+      opacity: 1;
+
+      &::before {
+        opacity: 0.5;
+      }
+    }
+  }
+  &__nav {
+    @include transition;
+    @include phone {
+      pointer-events: none;
+      opacity: 0;
+      z-index: -1;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      transform: translateY(0%);
+      background: $primaryClr2;
+
+      &::before {
+        pointer-events: none;
+        content: "";
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: -50vw;
+        width: 200vw;
+        height: 100vh;
+        background: $primaryClr2;
+        opacity: 0;
+      }
+    }
+    ul {
+      display: flex;
+      gap: rem(42);
+
+      @include phone {
+        padding: rem(48) rem(24);
+        flex-direction: column;
+        gap: rem(32);
+      }
+    }
+  }
+
+  &__nav-link {
+    @include transition;
+    white-space: nowrap;
+    font-size: rem(14);
+    letter-spacing: rem(2);
+    color: $secondaryClr2;
+    text-transform: uppercase;
+    border-bottom: rem(1) solid transparent;
+    @include phone {
+      color: $white;
+    }
+
+    &:hover {
+      border-color: $secondaryClr2;
+    }
+    &.active {
+      color: $primaryClr1;
+      &:hover {
+        border-color: $primaryClr1;
+      }
+    }
+  }
+  .hamburger-menu {
+    display: none;
+
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: rem(4);
+    width: rem(24);
+    height: rem(20);
+
+    @include phone {
+      display: flex;
+    }
+    .line {
+      @include transition;
+      display: inline-block;
+      width: 100%;
+      height: rem(4);
+      background: $primaryClr2;
+    }
+    &.active {
+      .line:nth-child(1) {
+        transform: rotate(45deg) translateY(125%) translateX(15%);
+      }
+      .line:nth-child(2) {
+        opacity: 0;
+      }
+      .line:nth-child(3) {
+        transform: rotate(-45deg) translateY(-200%) translateX(25%);
+      }
+    }
+  }
+}

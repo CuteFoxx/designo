@@ -1,0 +1,56 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @include phone {
+    overflow-x: clip;
+  }
+}
+
+main {
+  flex: 1 1 auto;
+}
+
+body {
+  font-family: "Jost", sans-serif;
+  font-weight: 400;
+  font-size: rem(16);
+  line-height: 162.5%; /* 26/16 */
+}
+.main{
+  @include container;
+}
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+body:has(.header__nav.show) {
+  overflow: hidden;
+  position: fixed;
+}
+
+.categories{
+  display: grid;
+}

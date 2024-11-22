@@ -1,0 +1,22 @@
+@use '../variables' as *;
+@use "../mixins" as *;
+
+.home-page{
+  & > * {
+    margin-bottom: rem(160);
+  }
+}
+
+.categories-home{
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: rem(30);
+  row-gap: rem(24);
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+
+  .category-card:first-child{
+    grid-row: span 2;
+  }
+}

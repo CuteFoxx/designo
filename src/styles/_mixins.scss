@@ -1,0 +1,123 @@
+@use "variables" as *;
+@use "sass:math";
+
+@function rem($value, $base: 16) {
+  @return math.div($value, $base) + rem;
+}
+@function em($value, $base: 16) {
+  @return math.div($value, $base) + em;
+}
+
+@mixin container($max-width: em(1111)) {
+  max-width: $max-width;
+  width: 100%;
+  margin: 0 auto;
+
+  // padding: 0 rem(165);
+
+  @include tablet {
+    padding: 0 rem(40);
+  }
+  @include phone {
+    padding: 0 rem(24);
+  }
+}
+
+@mixin transition($time: 0.3s) {
+  transition: all $time ease;
+}
+
+@mixin max-width($max-width) {
+  @media (max-width: $max-width) {
+    @content;
+  }
+}
+
+@mixin phoneS {
+  @include max-width(em($phone)) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @include max-width(em($tablet)) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @include max-width(em($pc)) {
+    @content;
+  }
+}
+
+@mixin body {
+  font-weight: 400;
+  font-size: rem(16);
+  line-height: 162.5%; /* 26/16 */
+  font-weight: 400;
+  color: $secondaryClr2;
+}
+
+@mixin h1 {
+  font-size: rem(48);
+  line-height: 1;
+  font-weight: 500;
+}
+@mixin h2 {
+  font-size: rem(40);
+  line-height: 120%; /* 48/40 */
+  letter-spacing: rem(2);
+  font-weight: 500;
+
+  @include phone{
+    font-size: rem(28);
+    letter-spacing: rem(1.4);
+    line-height: 1.28;
+  }
+}
+@mixin h3 {
+  font-size: rem(20);
+  line-height: 130%; /* 26/20 */
+  letter-spacing: rem(5);
+  font-weight: 500;
+}
+
+@mixin btn1 {
+  @include transition;
+  display: inline-block;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $fontClr;
+  background: $white;
+
+  border-radius: rem(8);
+  padding: rem(17) rem(25);
+  font-size: rem(15);
+  line-height: 146.666667%; /* 22/15 */
+  letter-spacing: rem(1);
+
+  &:hover {
+    background: $secondaryClr1;
+    color: $white;
+  }
+}
+@mixin btn2 {
+  @include transition;
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $white;
+  background: $primaryClr1;
+
+  border-radius: rem(8);
+  padding: rem(17) rem(25);
+  font-size: rem(15);
+  line-height: 146.666667%; /* 22/15 */
+  letter-spacing: rem(1);
+
+  &:hover {
+    background: $secondaryClr1;
+    color: $white;
+  }
+}
