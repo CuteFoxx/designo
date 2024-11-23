@@ -4,6 +4,14 @@
 .home-page{
   & > * {
     margin-bottom: rem(160);
+
+    @include tablet {
+      margin-bottom: rem(120);
+    }
+
+    @include phone {
+      margin-bottom: rem(120);
+    }
   }
 }
 

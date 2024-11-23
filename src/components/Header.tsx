@@ -30,7 +30,7 @@ const Header = () => {
   });
 
   return (
-    <header className="header">
+    <header className="header" id={"header"}>
       <div className="header__container">
         <div className="header__wraper">
           <Logo logoSrc="logo.png" />

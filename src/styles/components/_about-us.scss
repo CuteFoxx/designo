@@ -1,0 +1,97 @@
+@use '../variables' as *;
+@use "../mixins" as *;
+
+.about-us {
+
+  &__wrapper {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: rem(30);
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+    @include phone {
+      gap: rem(80);
+
+    }
+
+    &::before {
+      pointer-events: none;
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: -1;
+
+      background: url("/images/about-us-bg.svg") center/cover no-repeat;
+      width: rem(1006);
+      height: rem(594);
+
+      right: rem(-165);
+      bottom: rem(-306);
+
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+
+  &__card {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
+
+    @include tablet {
+      text-align: left;
+      justify-items: flex-start;
+      grid-template-columns: rem(202) 1fr;
+      column-gap: rem(48);
+    }
+    @include phone {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+    }
+  }
+
+  &__image {
+    width: rem(202);
+    height: rem(202);
+    @include tablet {
+      grid-row: span 2;
+    }
+    @include phone {
+      grid-row: unset;
+    }
+  }
+
+  &__title {
+    @include h3;
+    margin-top: rem(48);
+    text-transform: uppercase;
+
+    @include tablet {
+      align-self: flex-end;
+      margin-top: 0;
+    }
+    @include phone {
+      align-self: flex-start;
+      margin-top: rem(48);
+    }
+  }
+
+  &__description {
+    @include body;
+    margin-top: rem(32);
+
+    @include tablet {
+      margin-top: rem(16);
+    }
+    @include phone {
+      margin-top: rem(32);
+    }
+  }
+}

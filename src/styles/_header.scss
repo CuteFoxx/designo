@@ -2,35 +2,42 @@
 @use "mixins" as *;
 
 .header {
+  position: relative;
   background: $white;
   padding: rem(64) 0;
 
   @include phone {
-    padding: rem(34) 0;
     height: rem(96);
+
+    padding: 0;
   }
 
   &__container {
     z-index: 3;
 
-    position: relative;
+    //position: relative;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     @include container;
+
+   @include phone{
+     padding: 0;
+   }
   }
   &__wraper {
     width: 100%;
     display: flex;
     align-items: center;
     @include phone {
-      & {
-        z-index: 2;
-        justify-content: space-between;
-      }
-
+        height: rem(96);
+        position: relative;
+        z-index: 5;
+        padding: rem(34) rem(25);
+        background: $white;
+      justify-content: space-between;
       &::before {
         pointer-events: none;
         content: "";
@@ -47,8 +54,12 @@
   &__nav.show {
     @include phone {
       pointer-events: all;
-      transform: translateY(calc(100% + rem(34)));
+      transform: translateY(calc(0%));
       opacity: 1;
+      height: fit-content;
+      top: rem(96);
+      left: 0;
+      z-index: 5;
 
       &::before {
         opacity: 0.5;
@@ -60,12 +71,12 @@
     @include phone {
       pointer-events: none;
       opacity: 0;
-      z-index: -1;
+      z-index: -2;
       position: absolute;
       width: 100%;
       left: 0;
-      bottom: 0;
-      transform: translateY(0%);
+      top: rem(96);
+      transform: translateY(-50%);
       background: $primaryClr2;
 
       &::before {
