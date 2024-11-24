@@ -2,6 +2,8 @@
 @use "../mixins" as *;
 
 .home-page{
+  position: relative;
+  z-index: 1;
   & > * {
     margin-bottom: rem(160);
 
@@ -11,6 +13,25 @@
 
     @include phone {
       margin-bottom: rem(120);
+    }
+  }
+
+  &::before{
+    position: absolute;
+    content: "";
+    display: block;
+    z-index: -1;
+
+    width: rem(1006);
+    height: rem(594);
+
+    top: rem(320);
+    left: rem(-165);
+
+    background: url("/images/BlobBG.svg") center/cover no-repeat;
+
+    @include tablet {
+      display: none;
     }
   }
 }
