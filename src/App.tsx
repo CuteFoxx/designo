@@ -5,6 +5,7 @@ import Error from "./components/Error.tsx";
 import WebDesign from "./pages/WebDesign.tsx";
 import AppDesign from "./pages/AppDesign.tsx";
 import GraphicDesign from "./pages/GraphicDesign.tsx";
+import Locations from "./pages/Locations.tsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -28,6 +29,10 @@ function App() {
         {
           path: "/graphic-design",
           element: <GraphicDesign/>
+        },
+        {
+          path: "/locations",
+          element: <Locations />
         }
       ],
     },
