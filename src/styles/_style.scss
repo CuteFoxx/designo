@@ -54,3 +54,73 @@ body:has(.header__nav.show) {
 .categories{
   display: grid;
 }
+
+.about-us-page{
+  & > * {
+    margin-bottom: rem(160);
+
+    @include tablet {
+      margin-bottom: rem(120);
+    }
+    @include phone {
+      &:nth-child(2n){
+        margin-bottom: rem(120);
+      }
+    }
+  }
+
+  .abouts-us-section1{
+    justify-items: flex-start;
+    grid-template-columns: rem(476) 1fr;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+
+    &__image{
+      order: -1;
+    }
+  }
+  .abouts-us-section1,
+  .abouts-us-section2{
+      background: rgba($secondaryClr1, 0.25);
+
+    &__wrapper{
+      padding: 0 rem(95);
+
+      @include tablet {
+        padding: rem(94) rem(59);
+      }
+      @include phone {
+        padding: rem(80) rem(24);
+      }
+      &::before{
+        left: rem(-90);
+        background: url("/images/about-us-bg2.svg") bottom left/contain no-repeat;
+      }
+    }
+
+    &__title{
+      color: $primaryClr1;
+    }
+    &__description{
+      color: $fontClr;
+    }
+  }
+
+  .locations-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+
+      & > *:first-child{
+        margin-bottom: rem(80);
+      }
+      & > *:nth-child(2n){
+        margin-bottom: rem(58);
+      }
+    }
+  }
+}

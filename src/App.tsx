@@ -6,6 +6,7 @@ import WebDesign from "./pages/WebDesign.tsx";
 import AppDesign from "./pages/AppDesign.tsx";
 import GraphicDesign from "./pages/GraphicDesign.tsx";
 import Locations from "./pages/Locations.tsx";
+import AboutUs from "./pages/AboutUs.tsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -29,6 +30,10 @@ function App() {
         {
           path: "/graphic-design",
           element: <GraphicDesign/>
+        },
+        {
+          path: "/about-us",
+          element: <AboutUs />
         },
         {
           path: "/locations",

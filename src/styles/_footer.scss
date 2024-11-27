@@ -84,6 +84,19 @@
         flex-direction: column;
         gap: rem(32);
       }
+
+      a{
+        color: $white;
+        &:hover{
+          border-color: $white;
+        }
+        &.active{
+          color: $primaryClr1;
+          &:hover{
+            border-color: $primaryClr1;
+          }
+        }
+      }
     }
   }
   &__socials {

@@ -4,7 +4,7 @@ const NavLinks = () => {
   return (
     <ul>
       <li>
-        <NavLink className="header__nav-link" to="/">
+        <NavLink className="header__nav-link" to="/about-us">
           OUR COMPANY
         </NavLink>
       </li>

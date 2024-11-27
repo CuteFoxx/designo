@@ -15,17 +15,18 @@ type LocationProps = {
         phone: string;
         phoneSrc: string;
     }
+    id?: string;
 }
 
-const Location = ({x,y, title,address,email,phone} : LocationProps) => {
+const Location = ({x,y, title,address,email,phone, id} : LocationProps) => {
     return (
-        <section className="location">
+        <section className="location" id={id && id}>
             <div className="location__wrapper">
                 <h2 className="location__title">
                     {title}
                 </h2>
                 <p className="location__address">
-                    <strong>Designo Central Office</strong>
+                    <strong>{address.title}</strong>
                     <a target={"_blank"} href={`${address.addressSrc}`}>
                         {address.address}
                     </a>
