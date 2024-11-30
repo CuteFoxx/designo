@@ -46,6 +46,55 @@ ul {
 a {
   text-decoration: none;
 }
+input{
+  @include body;
+  background: none;
+  border: none;
+
+  border-bottom: rem(1) solid $white;
+  padding: 0 rem(16) rem(12);
+  color: $white;
+  &:focus{
+    outline: none;
+    border-bottom: rem(3) solid $white;
+
+    font-weight: bold;
+
+    &::placeholder {
+      color: $white;
+      font-weight: bold;
+    }
+  }
+  &::placeholder {
+    @include body;
+    color: rgba($white, 0.5);
+  }
+}
+textarea{
+  @include body;
+  background: none;
+  border: none;
+  border-bottom: rem(1) solid $white;
+  min-height: rem(102);
+  padding: 0 rem(16);
+  &:focus{
+    outline: none;
+    border-bottom: rem(3) solid $white;
+
+    font-weight: bold;
+
+    &::placeholder {
+      @include body;
+      color: $white;
+      font-weight: bold;
+    }
+  }
+  &::placeholder {
+    color: rgba($white, 0.5);
+    padding: 0 rem(16) rem(12);
+
+  }
+}
 body:has(.header__nav.show) {
   overflow: hidden;
   position: fixed;
@@ -54,7 +103,21 @@ body:has(.header__nav.show) {
 .categories{
   display: grid;
 }
+.inner-page{
+  & > * {
+    margin-bottom: rem(160);
 
+    @include tablet {
+      margin-bottom: rem(120);
+    }
+    @include phone {
+      &:first-child{
+        margin-bottom: rem(120);
+      }
+      margin-bottom: rem(120);
+    }
+  }
+}
 .about-us-page{
   & > * {
     margin-bottom: rem(160);
@@ -107,20 +170,27 @@ body:has(.header__nav.show) {
       color: $fontClr;
     }
   }
+}
 
-  .locations-wrapper{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+.locations-wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 
-    @include tablet {
-      grid-template-columns: 1fr;
+  @include tablet {
+    grid-template-columns: 1fr;
 
-      & > *:first-child{
-        margin-bottom: rem(80);
-      }
-      & > *:nth-child(2n){
-        margin-bottom: rem(58);
-      }
+    & > *:first-child{
+      margin-bottom: rem(80);
     }
+    & > *:nth-child(2n){
+      margin-bottom: rem(58);
+    }
+  }
+}
+
+.error-page{
+  h1{
+    @include h1;
+    text-align: center;
   }
 }

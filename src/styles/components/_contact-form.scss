@@ -1,0 +1,101 @@
+@use '../variables' as *;
+@use "../mixins" as *;
+
+.contact-form{
+  overflow: hidden;
+  z-index: 1;
+  position: relative;
+  background: $primaryClr1;
+  border-radius: rem(15);
+  color: $white;
+
+  display: grid;
+  align-items: center;
+  column-gap: rem(95);
+  grid-template-columns: 1fr rem(371);
+
+  padding: rem(55) rem(95);
+
+  @include tablet {
+    row-gap: rem(40);
+    grid-template-columns: 1fr;
+  }
+
+  @include phone {
+    text-align: center;
+    padding: rem(72) rem(24);
+    border-radius: 0;
+    margin: 0 rem(-24);
+  }
+
+  &::before{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    bottom: 0;
+    top: rem(-100);
+    left: 0;
+
+    width: rem(640);
+    height: rem(640);
+
+    background: url('/images/contacts-bg.svg') no-repeat center/contain;
+
+    @include tablet {
+      top: rem(-80);
+      left: rem(-121);
+
+    }
+    @include phone {
+      top: 0;
+      left: rem(-45);
+      height: rem(292);
+      background: url('/images/contacts-bg.svg') right/contain;
+    }
+  }
+  .form-input{
+    position: relative;
+    font-size: rem(12);
+    line-height: rem(26);
+    font-style: italic;
+    width: 100%;
+
+    &-error{
+      @include transition;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      gap: rem(9);
+      align-items: center;
+    }
+    &:has(input:user-invalid) .form-input-error{
+      opacity: 1;
+    }
+  }
+  &__title{
+    @include h1;
+    margin-bottom: rem(32);
+  }
+  &__description{
+    @include body;
+    color: $white;
+  }
+  &__form{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: rem(25);
+  }
+  input,
+  textarea{
+    width: 100%;
+    flex: 1 1 auto;
+  }
+  input[type="submit"]{
+    @include btn1;
+    max-width: rem(152);
+  }
+}

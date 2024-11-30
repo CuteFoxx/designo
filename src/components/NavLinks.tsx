@@ -9,7 +9,7 @@ const NavLinks = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink className="header__nav-link" to="/">
+        <NavLink className="header__nav-link" to="/contact">
           CONTACT
         </NavLink>
       </li>

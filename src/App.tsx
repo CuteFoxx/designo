@@ -7,6 +7,7 @@ import AppDesign from "./pages/AppDesign.tsx";
 import GraphicDesign from "./pages/GraphicDesign.tsx";
 import Locations from "./pages/Locations.tsx";
 import AboutUs from "./pages/AboutUs.tsx";
+import Contact from "./pages/Contact.tsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -38,6 +39,10 @@ function App() {
         {
           path: "/locations",
           element: <Locations />
+        },
+        {
+          path: "/contact",
+          element: <Contact/>
         }
       ],
     },
