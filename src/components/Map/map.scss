@@ -1,0 +1,10 @@
+@use '../../styles/variables' as *;
+@use "../../styles/mixins" as *;
+
+.map,.leaflet-tile-container{
+  width: rem(350);
+  height: rem(325);
+  overflow: hidden;
+
+  border-radius: rem(15);
+}

@@ -1,0 +1,51 @@
+@use '../../styles/variables' as *;
+@use "../../styles/mixins" as *;
+
+.home-page{
+  position: relative;
+  z-index: 1;
+  & > * {
+    margin-bottom: rem(160);
+
+    @include tablet {
+      margin-bottom: rem(120);
+    }
+
+    @include phone {
+      margin-bottom: rem(120);
+    }
+  }
+
+  &::before{
+    position: absolute;
+    content: "";
+    display: block;
+    z-index: -1;
+
+    width: rem(1006);
+    height: rem(594);
+
+    top: rem(320);
+    left: rem(-165);
+
+    background: url("/images/BlobBG.svg") center/cover no-repeat;
+
+    @include tablet {
+      display: none;
+    }
+  }
+}
+
+.categories-home{
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: rem(30);
+  row-gap: rem(24);
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+
+  .category-card:first-child{
+    grid-row: span 2;
+  }
+}

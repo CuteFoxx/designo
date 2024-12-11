@@ -1,13 +1,13 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/Home";
-import Root from "./pages/Root";
-import Error from "./components/Error.tsx";
-import WebDesign from "./pages/WebDesign.tsx";
-import AppDesign from "./pages/AppDesign.tsx";
-import GraphicDesign from "./pages/GraphicDesign.tsx";
-import Locations from "./pages/Locations.tsx";
-import AboutUs from "./pages/AboutUs.tsx";
-import Contact from "./pages/Contact.tsx";
+import Home from "./pages/Home/Home.tsx";
+import Root from "./pages/Root/Root.tsx";
+import Error from "./components/Error/Error.tsx";
+import WebDesign from "./pages/WebDesign/WebDesign.tsx";
+import AppDesign from "./pages/AppDesign/AppDesign.tsx";
+import GraphicDesign from "./pages/GraphicDesign/GraphicDesign.tsx";
+import Locations from "./pages/Locations/Locations.tsx";
+import AboutUs from "./pages/AboutUs/AboutUs.tsx";
+import Contact from "./pages/Contact/Contact.tsx";
 
 function App() {
   const router = createBrowserRouter([

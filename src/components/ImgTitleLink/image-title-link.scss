@@ -1,0 +1,22 @@
+@use '../../styles/variables' as *;
+@use "../../styles/mixins" as *;
+
+.img-title-card{
+  display: grid;
+  justify-items: center;
+
+  &__image{
+    width: rem(202);
+    height: rem(202);
+
+    margin-bottom: rem(42);
+  }
+  &__title{
+    @include h3;
+
+    margin-bottom: rem(32);
+  }
+  &__link{
+    @include btn2;
+  }
+}
