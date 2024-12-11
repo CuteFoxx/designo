@@ -1,4 +1,5 @@
 import './intro.scss'
+import {Link} from "react-router-dom";
 
 const Intro = () => {
     return (
@@ -10,9 +11,9 @@ const Intro = () => {
                 <p className="intro__body">
                     With over 10 years in the industry, we are experienced in creating fully responsive websites, app design, and engaging brand experiences. Find out more about our services.
                 </p>
-                <a href="#" className="intro__link">
+                <Link to={'/about-us'} className="intro__link">
                     Learn More
-                </a>
+                </Link>
             </div>
             <div className="intro__img-wrapper">
                 <img src="images/intro.png" alt="intro" className="intro__img"/>

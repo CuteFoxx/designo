@@ -5,16 +5,14 @@
 @use "header";
 @use "footer";
 
-/*COMPONENTS*/
-//@use "components/intro";
 
 @font-face {
   font-family: "Jost";
   font-weight: 400;
-  src: url("./fonts/Jost-Regular.woff2"), url("./fonts/Jost-Regular.woff");
+  src: url("/fonts/Jost-Regular.woff2"), url("/fonts/Jost-Regular.woff");
 }
 @font-face {
   font-family: "Jost";
   font-weight: 500;
-  src: url("./fonts/Jost-Medium.woff2"), url("./fonts/Jost-Medium.woff");
+  src: url("/fonts/Jost-Medium.woff2"), url("/fonts/Jost-Medium.woff");
 }
